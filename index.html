@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inicio | Dr. Eugenio Romantchik K.</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* CSS integrado de index.html */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+:root{
+  --green-dark:#3d1bc3;
+  --green:#3a40e9;
+  --green-light:#0920f4;
+  --accent:#3136cd;
+  --bg:#f7f4f4;
+  --slate-50:#f8fafc;
+  --slate-100:#f1f5f9;
+  --slate-200:#3b3bd9;
+  --slate-300:#f6f6f6;
+  --slate-400:#94a3b8;
+  --slate-500:#080808;
+  --slate-600:#0b0b0b;
+  --slate-700:#0a0a0a;
+  --slate-800:#1e293b;
+  --slate-900:#060606;
+  --white:#ffffff;
+  --shadow:0 12px 30px rgba(15,23,42,.08)
+}
+*{
+  box-sizing:border-box
+}
+html{
+  scroll-behavior:smooth
+}
+body{
+  margin:0;
+  font-family:Inter,system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--slate-800);
+  line-height:1.6
+}
+a{
+  text-decoration:none;
+  color:inherit
+}
+button,input,textarea{
+  font:inherit
+}
+.container{
+  width:min(1180px,calc(100% - 32px));
+  margin-inline:auto
+}
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255, 255, 255, 0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--slate-200);
+  box-shadow:0 2px 12px rgba(15,23,42,.06)
+}
+.nav-wrap{
+  height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.brand-badge{
+  width:42px;
+  height:42px;
+  border-radius:13px;
+  background:var(--green);
+  color:#ffffff;
+  display:grid;
+  place-items:center;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(20, 83, 45, 0.2)
+}
+.brand-title{
+  display:block;
+  font-weight:800;color:var(--slate-900);
+  font-size:15px
+}
+.brand-subtitle{
+  display:block;
+  color:var(--slate-500);
+  font-size:11px;
+  font-weight:600;
+  margin-top:1px
+}
+.desktop-menu{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  flex-wrap:wrap
+}
+.desktop-menu a{
+  padding:9px 11px;border-radius:10px;
+  color:var(--slate-700);
+  font-size:13px;
+  font-weight:650;
+  transition:.25s
+}
+.desktop-menu a:hover{
+  color:var(--green);
+  background:var(--slate-100);
+  transform:translateY(-1px)
+}
+.desktop-menu .contact-link{
+  color:#ffffff;background:var(--green)
+}
+.desktop-menu .contact-link:hover{
+  background:#599dec;color:#fff
+}
+.menu-button{
+  display:none;
+  border:0;
+  background:transparent;
+  color:var(--slate-700);
+  font-size:24px;
+  padding:7px;
+  border-radius:10px;
+}
+.mobile-menu{
+  display:none;
+  border-top:1px solid var(--slate-200);
+  background:#f5f4f4;
+}
+.mobile-menu.open{
+  display:block;
+  animation:dropIn .35s ease
+}
+.mobile-menu-inner{
+  display:flex;
+  flex-direction:column;
+  padding:10px 0 16px;
+}
+.mobile-menu a{
+  padding:10px 12px;
+  border-radius:10px;
+  font-weight:650;
+  color:var(--slate-700)
+}
+.mobile-menu a:hover{
+  background:#f0fdf4;
+  color:var(--green)
+}
+.mobile-menu .contact-link{
+  background:var(--green);
+  color:#ffffff;
+  text-align:center;
+  margin-top:5px
+}
+.hero{
+  position:relative;
+  color:#ffffff;
+  overflow:hidden;
+  background-color:var(--green-dark);
+  background-image:radial-gradient(rgba(167, 165, 165, 0.485) 1px,transparent 1px),radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:24px 24px,48px 48px;
+  padding:88px 0 96px
+}
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:-25%;
+  background:radial-gradient(circle at 20% 20%,rgba(158, 155, 155, 0.573),transparent 28%),radial-gradient(circle at 80% 60%,rgba(34,197,94,.10),transparent 30%);
+  animation:floatGlow 9s ease-in-out infinite alternate
+}
+.hero-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:60px;
+  align-items:center;
+}
+.hero h1{
+  font-size:clamp(38px,5vw,66px);
+  line-height:1.05;
+  margin:15px 0 16px;
+  font-weight:800;
+  letter-spacing:-.03em
+}
+.badge{
+   display:inline-flex;align-items:center;
+  gap:8px;background:rgba(8, 13, 149, 0.7);
+  border:1px solid rgba(27, 45, 132, 0.3);
+  padding:8px 12px;
+  border-radius:999px;
+  color:#f3efef;
+  font-size:11px;
+  font-weight:750;
+  text-transform:uppercase;letter-spacing:.08em
+}
+.hero-lead{
+  font-size:21px;
+  color:#dce9e1;
+  font-weight:650;
+  margin:0 0 14px
+}
+.hero-text{
+  max-width:720px;
+  color:#cbd5e1;
+  font-size:16px;
+  margin:0;
+  line-height:1.8
+}
+.hero-text strong{
+  color:#ffffff
+}.hero-buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:25px
+}.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:750;
+  transition:.25s;
+  box-shadow:0 8px 20px rgba(150, 148, 148, 0.302)
+}
+.btn:hover{
+  transform:translateY(-3px)
+}
+.btn-primary{
+  background:var(--accent);
+  color:#f2efef
+}
+.btn-primary:hover{
+  background:#2656b6
+}
+.btn-secondary{
+  background:rgba(30, 41, 59, 0.72);
+  color:#ffffff;
+  border:1px solid #060606;
+}
+.profile-wrap{
+  display:flex;
+  justify-content:center
+}
+.profile-card{
+  position:relative;
+  width:min(100%,360px);
+  background:rgba(2, 15, 44, 0.9);
+  border:1px solid rgb(12, 12, 12);
+  border-radius:28px;
+  padding:32px;
+  box-shadow:0 25px 60px rgba(0, 0, 0, 0.42);
+  text-align:center;
+  overflow:hidden;
+  animation:cardFloat 6s ease-in-out infinite}.profile-card:before{content:"";
+  position:absolute;inset:-80px auto auto -80px;width:180px;
+  height:180px;background:rgba(232, 224, 224, 0.206);
+  filter:blur(30px);
+  border-radius:50%
+}
+.initials{
+  position:relative;
+  width:132px;
+  height:132px;
+  margin:0 auto 20px;
+  border-radius:24px;
+  background:linear-gradient(135deg,#166534,#22c55e);
+  border:2px solid rgba(5, 4, 4, 0.972);
+  display:grid;
+  place-items:center;color:#ffffff;
+  font-size:42px;
+  font-weight:800;
+  box-shadow:inset 0 0 40px rgba(255, 255, 255, 0.08)
+}
+.initials.portrait-photo{object-fit:cover;object-position:center 20%}
+.profile-name{
+  font-weight:800;
+  color:#ffffff}
+  .profile-dept{
+    font-size:12px;
+    color:#f3f6f4;
+    font-weight:700;
+    margin-top:5px
+  }
+  .profile-office{
+    font-size:11px
+    ;color:#94a3b8;
+    margin-top:3px
+  }
+  .socials{
+    border-top:1px solid rgba(232, 226, 226, 0.822);
+    padding-top:18px;
+    margin-top:20px;display:flex;
+    justify-content:center;
+    gap:10px
+  }
+  .social{
+    width:40px;
+    height:40px;
+    border-radius:12px;
+    background:#1e293b;
+    color:#cbd5e1
+    ;display:grid
+    ;place-items:center;
+    transition:.25s
+  }
+  .social:hover{
+    background:var(--green-light);
+    color:#ffffff;
+    transform:translateY(-3px) rotate(2deg)
+  }
+.section{
+  padding:84px 0
+}
+.section-white{
+  background:#ffffff
+}
+.section-gray{
+  background:var(--slate-100)
+}
+.section-head{
+  text-align:center;
+  max-width:780px;
+  margin:0 auto 48px
+}
+.eyebrow{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#fcfcfc;
+  color:var(--green-light);
+  border:1px solid #080808;
+  text-transform:uppercase;
+  letter-spacing:.11em;font-size:11px
+  ;font-weight:800
+}
+.section-head h2,.page-title h1{
+  font-size:clamp(32px,4vw,46px);
+  line-height:1.1;
+  color:var(--slate-900);
+  margin:11px 0 10px
+}
+.section-head p,.page-title p{
+  font-size:16px;
+  color:var(--slate-600);
+  margin:0
+}
+.cards-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px
+}
+.cards-2{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px
+}
+.card{
+  display:block;
+  background:#ffffff;
+  border:1px solid var(--slate-200);
+  border-radius:20px;
+  padding:26px;box-shadow:0 5px 18px rgba(31, 41, 63, 0.306);
+  transition:.28s
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow);
+  border-color:#0f0e0e
+}
+.card h3,.card h4
+{
+  margin:0;
+  color:var(--slate-900);
+  line-height:1.25
+}
+.card h3{
+  font-size:19px
+}
+.card p{
+  color:var(--slate-600);
+  font-size:14px;
+  margin:10px 0 0;
+  line-height:1.7
+}
+.soft{
+  background:var(--slate-50)
+}
+.icon-box{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  background:#f0f4f1;
+  color:var(--green-light);
+  display:grid;
+  place-items:center;
+  font-size:19px;
+  margin-bottom:15px
+}
+.small-title{
+  font-size:12px;
+  color:var(--green-light);
+  font-weight:750;
+  margin:7px 0 0
+}
+.tag{
+  display:inline-block;
+  background:#dcfce7;
+  color:var(--green);
+  padding:6px 9px;
+  border-radius:8px;
+  font-size:11px;
+  font-weight:800
+}
+.date{
+  color:var(--slate-400);
+  font-size:11px;
+  font-weight:700
+}
+.banner{
+  margin-top:44px;border-radius:28px;
+  padding:36px;
+  background:linear-gradient(115deg,#14532d,#0f172a 72%);
+  color:#ffffff;display:grid;
+  grid-template-columns:1.4fr .6fr;gap:30px;
+  align-items:center;
+  box-shadow:0 20px 40px rgba(2, 74, 244, 0.14);
+  border:1px solid rgba(238, 233, 233, 0.993)
+}
+.banner h3{
+  margin:7px 0 10px;
+ font-size :28px;
+}
+.banner p{
+  margin:0;
+  color:#cbd5e1;
+  font-size:14px;
+  line-height:1.75
+}
+.eyebrow-dark{color:#f2ecec;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:11px;
+  font-weight:800
+}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px
+}
+.stat{background:rgba(255, 255, 255, 0.07);
+  border:1px solid rgba(255,255,255,.1);
+  padding:19px;border-radius:18px;
+  text-align:center
+}
+.stat strong{
+  display:block;
+  font-size:30px;
+  color:#a9a7a7
+}
+.stat span{
+  display:block;
+  font-size:11px;
+  color:#b3b1b1;
+  margin-top:4px
+}
+.timeline{
+  max-width:860px;
+  margin:0 auto;
+  position:relative;
+  padding-left:30px;
+  border-left:3px solid #969494
+}
+.timeline-item{
+  position:relative;
+  margin-bottom:32px
+}
+.timeline-item:last-child{
+  margin-bottom:0
+}
+.timeline-item:before{
+  content:"";
+  position:absolute;
+  left:-44px;
+  top:6px;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#494646;
+  border:5px solid var(--slate-100);
+  box-shadow:0 0 0 1px #8b8b89
+}
+.timeline-card{
+  background:#8f8d8d;
+  border:1px solid var(--slate-200);
+  border-radius:20px;
+  padding:24px;
+  box-shadow:0 5px 18px rgba(15, 23, 42, 0.04)
+}
+.timeline-card h3{
+  margin:10px 0 6px;
+  color:var(--slate-900);
+  font-size:21px
+}
+.place{
+  font-size:12px;
+  color:var(--green-light);
+  font-weight:750
+}
+.timeline-card p{
+  margin:10px 0 0;
+  color:var(--slate-600);
+  font-size:14px
+}
+.page-title{
+  padding:72px 0 58px;
+  text-align:center;
+  background:linear-gradient(180deg,#949393,#eefbf2);
+  border-bottom:1px solid var(--slate-200)
+}
+.page-title .crumb{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#f0fdf4;
+  color:var(--green-light);
+  border:1px solid #bfc2c0;
+  text-transform:uppercase;
+  letter-spacing:.11em;
+  font-size:11px;
+  font-weight:800
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:.82fr 1.18fr;
+  gap:28px;align-items:start
+}
+.contact-list{
+  display:grid;
+  gap:16px
+}
+.contact-box{
+  background:var(--slate-50);
+  border:1px solid var(--slate-200);
+  padding:22px;
+  border-radius:20px;
+  display:flex;
+  gap:15px
+}
+.contact-box .icon{
+  width:44px;
+  height:44px;
+  flex:0 0 44px;
+  border-radius:12px;
+  background:#dcfce7;
+  color:var(--green-light);
+  display:grid;
+  place-items:center
+}
+.contact-box h3{
+  margin:0;
+  color:var(--slate-900);
+  font-size:16px
+}
+.contact-box p{
+  margin:5px 0 0;
+  color:var(--slate-600);
+  font-size:13px
+}
+.contact-box a{
+  color:var(--green-light);
+  font-weight:750
+}
+.form-box{
+  background:var(--slate-50);
+  border:1px solid var(--slate-200);
+  padding:28px;
+  border-radius:24px
+}
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px
+}
+.field{
+  display:grid;
+  gap:7px
+}
+.field.full{
+  grid-column:1/-1
+}
+.field label{
+  font-size:13px;
+  color:var(--slate-700);
+  font-weight:750
+}
+.field input,.field textarea{
+  width:100%;
+  border:1px solid var(--slate-300);
+  background:#ffffff;
+  color:var(--slate-800);
+  padding:12px 13px;
+  border-radius:12px;
+  outline:none;
+  transition:.2s
+}
+.field input:focus,.field textarea:focus{
+  border-color:#fcfffd;
+  box-shadow:0 0 0 3px rgba(34,197,94,.15)
+}
+.submit{
+  width:100%;
+  margin-top:19px;
+  border:0;
+  background:var(--green);
+  color:#ffffff;
+  padding:13px 16px;
+  border-radius:12px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.25s
+}
+.submit:hover{
+  background:#0d0d0e;
+  transform:translateY(-2px)
+}
+.success{
+  display:none;
+  margin-top:14px;
+  padding:13px;
+  border-radius:12px;
+  background:#dcfce7;
+  border:1px solid #86efac;
+  color:#888787;
+  font-size:13px;
+  font-weight:700;
+  text-align:center
+}
+.success.show{
+  display:block;
+  animation:pop .35s ease
+}
+.site-footer{
+  background:var(--slate-900);
+  color:#ffffff;
+  padding:38px 0;
+  margin-top:0
+}
+.footer-wrap{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px
+}
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:12px
+}
+.footer-brand strong{
+  display:block;
+  font-size:13px
+}
+.footer-brand span{
+  display:block;
+  font-size:11px;
+  color:#f6f3f3;
+  margin-top:2px
+}
+.footer-copy{
+  text-align:right;
+  color:#f5f3f3;
+  font-size:11px
+}
+.footer-copy p{
+  margin:2px 0
+}
+.reveal{opacity:1;
+  transform:none
+}
+.js-ready .reveal{
+  opacity:0;
+  transform:translateY(24px);
+  animation:reveal .75s ease forwards;
+  animation-play-state:paused
+}
+.js-ready .reveal.show{
+  animation-play-state:running
+}
+.hover-lift{
+  transition:transform .25s,box-shadow .25s
+}
+.hover-lift:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow)
+}
+@keyframes 
+reveal{to{opacity:1;
+  transform:none}
+}
+@keyframes 
+cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes
+ floatGlow{to{transform:translate(30px,18px) scale(1.06)}}
+ @keyframes dropIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+ @keyframes pop{from{opacity:0;
+  transform:scale(.97)
+}to{opacity:1;transform:scale(1)}}
+@media
+(max-width:980px)
+{ .desktop-menu
+  {display:none}.menu-button{display:block}
+  .hero-grid
+  {grid-template-columns:1fr}
+  .profile-wrap
+  {justify-content:flex-start}
+  .profile-card
+  {max-width:420px}.cards-3{grid-template-columns:1fr 1fr}
+  .banner
+  {grid-template-columns:1fr}
+  .contact-grid{
+    grid-template-columns:1fr}
+  .footer-wrap
+  {align-items:flex-start}
+  .footer-copy
+  {text-align:left}}
+@media
+(max-width:640px)
+{.container
+  {width:min(100% - 22px,1180px)}
+.nav-wrap
+{height:72px}
+.brand-title{
+  font-size:13px}
+.brand-subtitle
+{font-size:10px}
+.hero{
+  padding:64px 0 72px}
+.hero h1{
+  font-size:40px}
+.hero-lead{
+  font-size:18px}
+.cards-3,.cards-2,
+.form-grid
+{grid-template-columns:1fr}
+.field.full
+{grid-column:auto}
+.section
+{padding:64px 0}
+.banner
+{padding:26px}
+.stats
+{grid-template-columns:1fr 1fr}
+.timeline
+{padding-left:22px}
+.timeline-item:before
+{left:-36px}
+.footer-wrap
+{flex-direction:column}
+.footer-copy
+{text-align:left}}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="index.html" class="brand" aria-label="Inicio">
+     
+      <div>
+        <span class="brand-title">Dr. Eugenio Romantchik K.</span>
+        <span class="brand-subtitle">Profesor-Investigador • UACh</span>
+      </div>
+    </a>
+    <nav class="desktop-menu" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="perfil.html">Perfil</a>
+      <a href="investigacion.html">Investigación</a>
+      <a href="docencia.html">Docencia e Innovación</a>
+      <a href="trayectoria.html">Trayectoria</a>
+      <a href="titulacion.html">Titulación</a>
+      <a href="contacto.html" class="contact-link">Contacto</a>
+    </nav>
+    <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menú" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="container mobile-menu-inner">
+      <a href="index.html">Inicio</a>
+      <a href="perfil.html">Perfil</a>
+      <a href="investigacion.html">Investigación</a>
+      <a href="docencia.html">Docencia e Innovación</a>
+      <a href="trayectoria.html">Trayectoria</a>
+      <a href="titulacion.html">Titulación</a>
+      <a href="contacto.html" class="contact-link">Contacto</a>
+    </div>
+  </div>
+</header>
+<main>
+<section class="hero"><div class="container hero-grid">
+<div class="reveal"><span class="badge"><i class="fa-solid fa-graduation-cap"></i></span>
+  <h1>Dr. Eugenio Romantchik Kriuchkova</h1>
+  <p class="hero-lead">Profesor-Investigador del Departamento de Ingeniería Mecánica Agrícola (DIMA)</p>
+  <p class="hero-text">Especialista en tractores, automóviles, fuentes de energía en sistemas biológicos, simulación CFD y desarrollo de innovaciones tecnológicas para el sector agrícola de México en la <strong>Universidad Autónoma Chapingo (UACh)</strong>.</p>
+  <div class="hero-buttons"><a href="investigacion.html" class="btn btn-primary">Ver Investigación <i class="fa-solid fa-arrow-right">
+
+  </i>
+</a>
+  <a href="contacto.html" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Contactar</a></div>
+  </div>
+  <div class="profile-wrap reveal">
+    <div class="profile-card">
+      <img class="initials portrait-photo" src="data:image/jpeg;base64,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" alt="Dr. Eugenio Romantchik Kriuchkova" width="132" height="132"><div class="profile-name">Dr. Eugenio Romantchik K.</div><div class="profile-dept">Departamento de Ingeniería Mecánica Agrícola</div><div class="profile-office">Edificio Efraín Hernández Xolocotzi, Cubículo 229</div><div class="socials"><a class="social" href="https://www.researchgate.net/profile/Romantchik-Eugenio" target="_blank" rel="noopener" title="ResearchGate"><i class="fa-brands fa-researchgate"></i></a><a class="social" href="https://orcid.org/0000-0002-1944-490X" target="_blank" rel="noopener" title="ORCID"><i class="fa-brands fa-orcid"></i></a><a class="social" href="mailto:eugenio.romantchik@gmail.com" title="Correo electrónico"><i class="fa-solid fa-envelope"></i></a></div></div></div>
+</div></section>
+<section class="section section-white"><div class="container"><div class="section-head reveal"><span class="eyebrow">Sitio académico</span><h2>Bienvenido</h2><p>Consulta por separado el perfil, investigación, docencia, trayectoria, titulación y contacto.</p></div><div class="cards-3">
+<a class="card reveal hover-lift" href="perfil.html"><div class="icon-box"><i class="fa-solid fa-user"></i></div><h3>Perfil Académico</h3><p>Formación, credenciales y semblanza académica.</p></a>
+<a class="card reveal hover-lift" href="investigacion.html"><div class="icon-box"><i class="fa-solid fa-book"></i></div><h3>Investigación y Publicaciones</h3><p>Líneas de trabajo, libros, capítulos y simulación CFD.</p></a>
+<a class="card reveal hover-lift" href="docencia.html"><div class="icon-box"><i class="fa-solid fa-chalkboard-user"></i></div><h3>Docencia e Innovación</h3><p>Cursos, desarrollos tecnológicos y patente.</p></a>
+<a class="card reveal hover-lift" href="trayectoria.html"><div class="icon-box"><i class="fa-solid fa-timeline"></i></div><h3>Trayectoria Académica</h3><p>Cronología de formación y labor institucional.</p></a>
+<a class="card reveal hover-lift" href="titulacion.html"><div class="icon-box"><i class="fa-solid fa-graduation-cap"></i></div><h3>Titulación</h3><p>Doctorado, ingeniería y distinciones académicas.</p></a>
+<a class="card reveal hover-lift" href="contacto.html"><div class="icon-box"><i class="fa-solid fa-envelope"></i></div><h3>Contacto</h3><p>Ubicación, correos y perfiles científicos.</p></a>
+</div></div></section>
+<section class="section section-gray"><div class="container"><div class="section-head reveal"><span class="eyebrow">Resumen</span><h2>Áreas de especialidad</h2><p>Principales temas descritos en el sitio original.</p></div><div class="cards-3"><article class="card reveal"><div class="icon-box"><i class="fa-solid fa-tractor"></i></div><h3>Maquinaria Agrícola</h3><p>Diseño, evaluación y mejora de tractores, automóviles y aperos de labranza adaptados a las condiciones edafoclimáticas de México.</p></article><article class="card reveal"><div class="icon-box"><i class="fa-solid fa-wind"></i></div><h3>Simulación CFD</h3><p>Modelado computacional de fluidos para sistemas de ventilación, control automático y optimización en estructuras protegidas.</p></article><article class="card reveal"><div class="icon-box"><i class="fa-solid fa-bolt"></i></div><h3>Fuentes de Energía</h3><p>Aplicación y aprovechamiento de fuentes energéticas convencionales y alternativas en sistemas biológicos y procesos agroindustriales.</p></article></div></div></section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-wrap">
+    <div class="footer-brand">
+       <div class="brand-badge">ER</div>
+      <div>
+        <strong>Dr. Eugenio Romantchik Kriuchkova</strong>
+        <span>Universidad Autónoma Chapingo • CVU: 120471</span>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <p>© 2026 Universidad Autónoma Chapingo. Todos los derechos reservados.</p>
+      <p>Departamento de Ingeniería Mecánica Agrícola (DIMA)</p>
+    </div>
+  </div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.body.classList.add('js-ready');
+  var btn = document.getElementById('menuButton');
+  var menu = document.getElementById('mobileMenu');
+  if (btn && menu) {
+    btn.addEventListener('click', function () {
+      var open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>'
+    });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+});
+</script>
+</body>
+</html>
